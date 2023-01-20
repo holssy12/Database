@@ -23,7 +23,7 @@ select * from building_Temperature order by `building_id` desc limit 1; -- build
 
 -- building_id를 오름차순으로 정렬 후, rid 내림차순으로 정렬한다.
 -- building_id가 같은 것이 있으면, rid가 높은 것부터...
-select * from building_Temperature order by `building_id` asc, `rid` desc;
+select * from building_Temperature order by `temperature` asc, `rid` desc;
 
 /*
 	where clause -- condition
@@ -32,7 +32,22 @@ select * from building_Temperature order by `building_id` asc, `rid` desc;
     in operator
 */
 
-select * from building_Temperature where `reg_date` < '2021-12-06 13:00:00';
-select * from building_Temperature where `reg_date` < '2021-12-06 13:00L00' order by `rid` desc;
+select * from building_Temperature where `reg_date` < '2021-12-06 13:30:00';
+select * from building_Temperature where `reg_date` < '2021-12-06 13:30:00' order by `rid` desc;
+
+SELECT * FROM Building_Temperature WHERE `reg_date` < '2021-12-06 13:30:00' AND building_id  = 1;
+SELECT * FROM Building_Temperature WHERE `reg_date` != '2021-12-06 13:00:00';
+
+# SELECT * FROM Building_Temperature WHERE `building_id` = 1 OR `building_id` = 8 OR `building_id` = 9;
+SELECT * FROM Building_Temperature WHERE `building_id` in (1, 8, 9); # 위 코드와 같은 표현
+
+SELECT * FROM Building_Temperature WHERE (reg_date < '2021-12-06 13:30:00' and temperature > 9) or
+(building_id = 1 and temperature < 20.0);
+
+
+
+
+
+
 
 

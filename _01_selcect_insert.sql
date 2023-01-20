@@ -2,7 +2,7 @@
 
 -- 테이블 내용을 보여주는 명령어
 -- limt n : n개의 데이터만 보여준다.
-select * from building_Temperature limit 4;
+select * from building_Temperature limit 10;
 
 /*
 새로운 데이터 입력
